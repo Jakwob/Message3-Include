@@ -21,8 +21,9 @@ MSG_STYLE_INFO     2
 MSG_STYLE_USAGE    3
 MSG_STYLE_ADVERT   4
 MSG_STYLE_ADMIN    5
+
 Functions:
-Code:
+
 SendServerMessage(playerid, msgstyle, const message[]);
 CreateMessageTextDraw(playerid); // Place under OnPlayerConnect(playerid) Otherwise the textdraws will not show
 DestroyMessageTextDraw(playerid); // Place Under OnPlayerDisconnect(playerid, reason) Otherwise the textdraws will not show
@@ -37,7 +38,7 @@ CMD:goto(playerid, params[])
 {
     new pID,Float:Pos[3], string[50];
     if(pInfo[playerid][Adminlvl] < 3) return SendServerMessage(playerid, MSG_STYLE_ERROR ,"You are not high enough admin level!");  // New Code!!
-    if(sscanf(params, "u", pID)) return SendServerMessage(playerid, MSG_STYLE_USAGE,"Usage: /goto [ID]");  // New Code!!
+    if(sscanf(params, "u", pID)) return SendServerMessage(playerid, MSG_STYLE_USAGE,"Usage: /goto [ID]");  // New 	Code!!
     if(pID == IPI) return SendServerMessage(playerid, MSG_STYLE_ERROR,"Player is not connected!"); // New Code!!
     GetPlayerPos(pID,Pos[0],Pos[1],Pos[2]);
     SetPlayerPos(playerid,Pos[0],Pos[1],Pos[2]); 
